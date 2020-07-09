@@ -1,1 +1,30 @@
-<p> {{title}}</p>
+<ion-content>
+    <ion-row>
+      <ion-text
+        style="font-size: 23px;font-weight: bold; font-family: Arial, Helvetica, sans-serif; background-color: skyblue;"
+      >
+        {{ title }}</ion-text
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="img" style="width: 73vh;height: 45vh; margin-left: 15px;"></ion-img>
+        <ion-text style="font-size: 12px;margin-left: 76%; "> {{ publishedAt }}</ion-text>
+      </ion-col>
+      <ion-col style="    padding: 0px;">
+        <p
+          style="font-size: 26px;
+              font-family: initial;
+              margin-left: 18px;
+              margin-bottom: 20px;"
+          
+        >
+          {{ content }}
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-text style="font-size: 14px; "> {{ description }}</ion-text>
+    <!-- <a href="url"></a> -->
+    <a [href]="url" target="_blank">Read full article</a>
+  </ion-content>
+  

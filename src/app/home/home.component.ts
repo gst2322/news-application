@@ -37,12 +37,15 @@ export class HomeComponent implements OnInit {
     async presentModal(abc:any) {
       const modal = await this.modalController.create({
         component: NewsmodalComponent,
-        cssClass: 'my-custom-class',
+        cssClass: 'my-modal-class',
         componentProps: {
-          'title': abc.title,
-          'content':abc.content,
-          'description':abc.description,
-          'img':abc.urlToImage
+         
+          title: abc.title,
+          content: abc.content,
+          description: abc.description,
+          img: abc.urlToImage,
+          publishedAt: abc.publishedAt,
+          url: abc.url
         }
       });
       return await modal.present();

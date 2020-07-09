@@ -19,3 +19,6 @@
 
 // Theme customization
 @import "theme/theme";
+.my-modal-class .modal-wrapper {
+    height: 80% !important;
+  }
