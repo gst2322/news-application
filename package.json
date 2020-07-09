@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+  
+
     "ng": "ng",
+    "heroku-postbuild": "npm run build",
     "build": "npm run env -s && ng build --prod",
     "start": "npm run env -s && ng serve --proxy-config proxy.conf.js",
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
@@ -17,6 +20,10 @@
     "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
     "postinstall": "npm run prettier -s",
     "generate": "ng generate"
+  },
+  "engines": {
+    "npm": "5.6.0",
+    "node": "8.10.0"
   },
   "dependencies": {
     "@angular/animations": "^8.1.0",
