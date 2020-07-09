@@ -3,24 +3,171 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title><span translate>News Portal</span></ion-title>
+    <ion-row>
+      <ion-col>
+        <ion-title><span translate>News Portal</span></ion-title>
+      </ion-col>
+      <ion-col>
+        <ion-searchbar [(ngModel)]="searchNews" placeholder=" Search News" style="width: 50%; height: auto;">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
+  <div style="margin-left: 50px;">
+    <ion-button (click)="genNews=true;healthNews=false;SportsNews=false;SciNews=false;TechNews=false;" class="btn"
+      color="secondary" size="large">
+      <ion-icon ios="ios-cloud" md="md-cloud"></ion-icon> General News
+    </ion-button>
+    <ion-button (click)="genNews=false;healthNews=true;SportsNews=false;SciNews=false;TechNews=false;" class="btn"
+      color="warning" size="large">
+      <ion-icon ios="ios-beer" md="md-beer"></ion-icon> Health News
+    </ion-button>
+    <ion-button (click)="genNews=false;healthNews=false;SportsNews=true;SciNews=false;TechNews=false;" class="btn"
+      color="success" size="large">
+      <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon> Science News
+    </ion-button>
+    <ion-button (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=true;TechNews=false;" class="btn"
+      color="light" size="large">
+      <ion-icon ios="ios-american-football" md="md-american-football"></ion-icon> Sports News
+    </ion-button>
+    <ion-button (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=false;TechNews=true;" class="btn"
+      color="danger" size="large">
+      <ion-icon ios="ios-desktop" md="md-desktop"></ion-icon> Technology News
+    </ion-button>
+  </div>
 </ion-header>
-<ion-content>
-<ion-row>
-  <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let article of articles">
+<ion-content *ngIf="genNews==true">
+  <ion-row>
+    <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12"
+      *ngFor="let article of articles | filter:searchNews">
 
-    <ion-card style="height: 300px;">
-      <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
-      <h2>{{article.title}}</h2>
+      <ion-card style="height: 200px;cursor: pointer;background-color: rgb(31, 11, 124);"
+        (click)="presentModal(article)">
+        <ion-row style="color: white;">
+          <ion-col size="3">
+            <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
 
-      <p>
-        {{article.description}}
-      </p>
-      <a href="{{article.url}}">Read full article</a>
-      <ion-button (click)="presentModal(article)">click</ion-button>
-    </ion-card>
- 
-</ion-col>
-</ion-row>
+          </ion-col>
+          <ion-col size="9">
+            <h4>{{article.title}}</h4>
+
+          </ion-col>
+        </ion-row>
+
+        <p style="height: 80px;font-size: 18px;color: rgb(236, 235, 235);background-color: tomato;padding: 5px;">
+          {{article.description}}
+        </p>
+        <!-- <ion-button style="margin-top: 10px;" (click)="presentModal(article)">See Full News</ion-button> -->
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-content *ngIf="healthNews==true">
+  <ion-row>
+    <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12"
+      *ngFor="let article of healthArticles | filter:searchNews">
+
+      <ion-card style="height: 200px;cursor: pointer;background-color: rgb(31, 11, 124);"
+        (click)="presentModal(article)">
+        <ion-row style="color: white;">
+          <ion-col size="3">
+            <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
+
+          </ion-col>
+          <ion-col size="9">
+            <h4>{{article.title}}</h4>
+
+          </ion-col>
+        </ion-row>
+
+        <p style="height: 80px;font-size: 18px;color: rgb(236, 235, 235);background-color: tomato;padding: 5px;">
+          {{article.description}}
+        </p>
+        <!-- <ion-button style="margin-top: 10px;" (click)="presentModal(article)">See Full News</ion-button> -->
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-content *ngIf="SportsNews==true">
+  <ion-row>
+    <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12"
+      *ngFor="let article of sportsArticles | filter:searchNews">
+
+      <ion-card style="height: 200px;cursor: pointer;background-color: rgb(31, 11, 124);"
+        (click)="presentModal(article)">
+        <ion-row style="color: white;">
+          <ion-col size="3">
+            <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
+
+          </ion-col>
+          <ion-col size="9">
+            <h4>{{article.title}}</h4>
+
+          </ion-col>
+        </ion-row>
+
+        <p style="height: 80px;font-size: 18px;color: rgb(236, 235, 235);background-color: tomato;padding: 5px;">
+          {{article.description}}
+        </p>
+        <!-- <ion-button style="margin-top: 10px;" (click)="presentModal(article)">See Full News</ion-button> -->
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-content *ngIf="SciNews==true">
+  <ion-row>
+    <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12"
+      *ngFor="let article of scienceArticles | filter:searchNews">
+
+      <ion-card style="height: 200px;cursor: pointer;background-color: rgb(31, 11, 124);"
+        (click)="presentModal(article)">
+        <ion-row style="color: white;">
+          <ion-col size="3">
+            <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
+
+          </ion-col>
+          <ion-col size="9">
+            <h4>{{article.title}}</h4>
+
+          </ion-col>
+        </ion-row>
+
+        <p style="height: 80px;font-size: 18px;color: rgb(236, 235, 235);background-color: tomato;padding: 5px;">
+          {{article.description}}
+        </p>
+        <!-- <ion-button style="margin-top: 10px;" (click)="presentModal(article)">See Full News</ion-button> -->
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-content *ngIf="TechNews==true">
+  <ion-row>
+    <ion-col size="6" size-lg="6" size-md="6" size-sm="6" size-xs="12"
+      *ngFor="let article of techArticles | filter:searchNews">
+
+      <ion-card style="height: 200px;cursor: pointer;background-color: rgb(31, 11, 124);"
+        (click)="presentModal(article)">
+        <ion-row style="color: white;">
+          <ion-col size="3">
+            <img style="height: 100px;width: auto;" src="{{article.urlToImage}}">
+
+          </ion-col>
+          <ion-col size="9">
+            <h4>{{article.title}}</h4>
+
+          </ion-col>
+        </ion-row>
+
+        <p style="height: 80px;font-size: 18px;color: rgb(236, 235, 235);background-color: tomato;padding: 5px;">
+          {{article.description}}
+        </p>
+        <!-- <ion-button style="margin-top: 10px;" (click)="presentModal(article)">See Full News</ion-button> -->
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
 </ion-content>

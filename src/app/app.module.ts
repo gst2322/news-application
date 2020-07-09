@@ -16,9 +16,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Sample1Component } from './sample1/sample1.component';
 import { NewsmodalComponent } from './newsmodal/newsmodal.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   imports: [
+    Ng2SearchPipeModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

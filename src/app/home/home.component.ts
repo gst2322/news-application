@@ -16,6 +16,21 @@ export class HomeComponent implements OnInit {
   quote: string | undefined;
   isLoading = false;
   articles: any;
+  healthArticles:any
+  scienceArticles:any
+  sportsArticles:any
+  techArticles:any
+
+  searchNews:any;
+  
+  
+
+  genNews=true;
+  healthNews=false;
+  SportsNews=false;
+  SciNews=false;
+  TechNews=false;
+  
 
   constructor(public modalController: ModalController,
     private quoteService: QuoteService,private apiService: ApiService) {}
@@ -37,6 +52,22 @@ export class HomeComponent implements OnInit {
     this.apiService.getGeneralNews().subscribe((data)=>{
       console.log(data);
       this.articles = data['articles'];
+    });
+    this.apiService.getHealthNews().subscribe((data)=>{
+      console.log(data);
+      this.healthArticles = data['articles'];
+    });
+    this.apiService.getScienceNews().subscribe((data)=>{
+      console.log(data);
+      this.scienceArticles = data['articles'];
+    });
+    this.apiService.getSportsNews().subscribe((data)=>{
+      console.log(data);
+      this.sportsArticles = data['articles'];
+    });
+    this.apiService.getTechnologyNews().subscribe((data)=>{
+      console.log(data);
+      this.techArticles = data['articles'];
     });
     this.isLoading = true;
     this.quoteService

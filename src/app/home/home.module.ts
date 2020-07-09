@@ -9,9 +9,13 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 import { NewsmodalComponent } from '@app/newsmodal/newsmodal.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, CoreModule, SharedModule, IonicModule, HomeRoutingModule],
+  // tslint:disable-next-line: max-line-length
+  imports: [FormsModule ,CommonModule, TranslateModule, CoreModule, SharedModule, IonicModule, HomeRoutingModule,Ng2SearchPipeModule],
   entryComponents: [HomeComponent,NewsmodalComponent],
   declarations: [HomeComponent]
 })

@@ -7,3 +7,13 @@ q {
   font-style: italic;
   quotes: "« " " »";
 }
+
+.btn{
+  padding: 10px;
+ 
+}
+@media only screen and (max-width: 720px) {
+  .btn {
+    width: 300px;
+  }
+}
