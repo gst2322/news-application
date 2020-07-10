@@ -1,40 +1,37 @@
+<ion-content>
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-row>
-      <ion-col>
-        <ion-title><span translate>News Portal</span></ion-title>
+    <ion-row >
+      <ion-col class="ion-text-center" >
+        <ion-text style="font-size: 18px;">News Portal</ion-text>
       </ion-col>
-      <ion-col>
-        <ion-searchbar [(ngModel)]="searchNews" placeholder=" Search News" style="width: 50%; height: auto;">
-        </ion-searchbar>
+      <ion-col  size-xl="8" size-lg="6" size-md="12" size-sm="12" size-xs="12" >
+        <ion-searchbar [(ngModel)]="searchNews" placeholder=" Search News"  class="search-btn">  </ion-searchbar>
       </ion-col>
     </ion-row>
   </ion-toolbar>
-  <div style="margin-left: 50px;">
-    <ion-button [style.background-color]="genNews ? 'lightblue':'transparent '" (click)="genNews=true;healthNews=false;SportsNews=false;SciNews=false;TechNews=false;" class="btn"
-      color="secondary" size="large">
-      <ion-icon ios="ios-cloud" md="md-cloud"></ion-icon> General News
-    </ion-button>
-    <ion-button [style.background-color]="healthNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=true;SportsNews=false;SciNews=false;TechNews=false;" class="btn"
-      color="warning" size="large">
-      <ion-icon ios="ios-beer" md="md-beer"></ion-icon> Health News
-    </ion-button>
-    <ion-button [style.background-color]="SportsNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=true;SciNews=false;TechNews=false;" class="btn"
-      color="success" size="large">
-      <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon> Science News
-    </ion-button>
-    <ion-button [style.background-color]="SciNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=true;TechNews=false;" class="btn"
-      color="light" size="large">
-      <ion-icon ios="ios-american-football" md="md-american-football"></ion-icon> Sports News
-    </ion-button>
-    <ion-button [style.background-color]="TechNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=false;TechNews=true;" class="btn"
-      color="danger" size="large">
-      <ion-icon ios="ios-desktop" md="md-desktop"></ion-icon> Technology News
-    </ion-button>
-  </div>
+  <div >
+    <ion-row>
+      <ion-col size-lg="2.3" size-md="6" size-sm="6" size-xs="12"><ion-button   class="btn" expand="full" color="secondary" size="large" [style.background-color]="genNews ? 'lightblue':'transparent '" (click)="genNews=true;healthNews=false;SportsNews=false;SciNews=false;TechNews=false;"> 
+        <ion-icon ios="ios-cloud" md="md-cloud"></ion-icon> General News</ion-button>
+      </ion-col>
+      <ion-col size-lg="2.3" size-md="6" size-sm="6" size-xs="12"> <ion-button  class="btn" expand="full" color="warning" size="large" [style.background-color]="healthNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=true;SportsNews=false;SciNews=false;TechNews=false;"> 
+        <ion-icon ios="ios-beer" md="md-beer"></ion-icon> Health News</ion-button>
+      </ion-col>
+      <ion-col size-lg="2.3" size-md="6" size-sm="6" size-xs="12"><ion-button  class="btn" expand="full" color="success" size="large" [style.background-color]="SportsNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=true;SciNews=false;TechNews=false;">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon> Science News</ion-button>
+      </ion-col>
+      <ion-col size-lg="2.3" size-md="6"size-sm="6" size-xs="12"><ion-button  class="btn" expand="full" color="light" size="large" [style.background-color]="SciNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=true;TechNews=false;" >
+        <ion-icon ios="ios-american-football" md="md-american-football"></ion-icon> Sports News</ion-button>
+      </ion-col>
+      <ion-col size-lg="2.5" size-md="6" size-sm="6" size-xs="12"><ion-button  class="btn" expand="full" color="danger" size="large" [style.background-color]="TechNews ? 'lightblue':'transparent '"  (click)="genNews=false;healthNews=false;SportsNews=false;SciNews=false;TechNews=true;" >
+        <ion-icon ios="ios-desktop" md="md-desktop"></ion-icon> Technology News</ion-button>
+      </ion-col>
+    </ion-row>
+</div>
 </ion-header>
 <ion-content *ngIf="genNews==true">
   <ion-row>
@@ -170,4 +167,5 @@
 
     </ion-col>
   </ion-row>
+</ion-content>
 </ion-content>
